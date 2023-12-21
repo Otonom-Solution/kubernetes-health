@@ -17,7 +17,7 @@ Puma::Plugin.create do
       launcher.log "* Starting kubernetes-healh server on #{str}"
       kubernetes.add_tcp_listener uri.host, uri.port
     else
-      launcher.events.error "Invalid control URI: #{str}"
+      @log_writer.error "Invalid control URI: #{str}"
     end
 
     launcher.events.register(:state) do |state|
